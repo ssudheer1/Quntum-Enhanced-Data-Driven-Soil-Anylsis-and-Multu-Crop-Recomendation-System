@@ -1,0 +1,128 @@
+{
+  "random_forest": {
+    "accuracy": 0.9955,
+    "precision": 0.9957,
+    "recall": 0.9955,
+    "f1_score": 0.9955
+  },
+  "xgboost": {
+    "accuracy": 0.9909,
+    "precision": 0.9915,
+    "recall": 0.9909,
+    "f1_score": 0.9909
+  },
+  "lightgbm": {
+    "accuracy": 0.9886,
+    "precision": 0.9891,
+    "recall": 0.9886,
+    "f1_score": 0.9886
+  },
+  "knn": {
+    "accuracy": 0.9818,
+    "precision": 0.9829,
+    "recall": 0.9818,
+    "f1_score": 0.9816
+  },
+  "decision_tree": {
+    "accuracy": 0.9795,
+    "precision": 0.9806,
+    "recall": 0.9795,
+    "f1_score": 0.9794
+  },
+  "extra_trees": {
+    "accuracy": 0.9955,
+    "precision": 0.9957,
+    "recall": 0.9955,
+    "f1_score": 0.9955
+  },
+  "gradient_boosting": {
+    "accuracy": 0.9909,
+    "precision": 0.9914,
+    "recall": 0.9909,
+    "f1_score": 0.991
+  },
+  "adaboost": {
+    "accuracy": 0.9977,
+    "precision": 0.9978,
+    "recall": 0.9977,
+    "f1_score": 0.9977
+  },
+  "svm": {
+    "accuracy": 0.9886,
+    "precision": 0.9894,
+    "recall": 0.9886,
+    "f1_score": 0.9886
+  },
+  "logistic_regression": {
+    "accuracy": 0.9795,
+    "precision": 0.9809,
+    "recall": 0.9795,
+    "f1_score": 0.9795
+  },
+  "naive_bayes": {
+    "accuracy": 0.9955,
+    "precision": 0.9959,
+    "recall": 0.9955,
+    "f1_score": 0.9954
+  },
+  "hist_gradient_boosting": {
+    "accuracy": 0.9886,
+    "precision": 0.9896,
+    "recall": 0.9886,
+    "f1_score": 0.9886
+  },
+  "bagging_classifier": {
+    "accuracy": 0.9932,
+    "precision": 0.9935,
+    "recall": 0.9932,
+    "f1_score": 0.9932
+  },
+  "mlp": {
+    "accuracy": 0.9886,
+    "precision": 0.9894,
+    "recall": 0.9886,
+    "f1_score": 0.9886
+  },
+  "deep_mlp": {
+    "accuracy": 0.9932,
+    "precision": 0.9937,
+    "recall": 0.9932,
+    "f1_score": 0.9932
+  },
+  "lstm_tabular": {
+    "accuracy": 0.9795,
+    "precision": 0.98,
+    "recall": 0.9795,
+    "f1_score": 0.9796
+  },
+  "mlp_lstm_hybrid": {
+    "accuracy": 0.9932,
+    "precision": 0.9934,
+    "recall": 0.9932,
+    "f1_score": 0.9932
+  },
+  "voting_ensemble": {
+    "accuracy": 0.9955,
+    "precision": 0.9957,
+    "recall": 0.9955,
+    "f1_score": 0.9955
+  },
+  "stacked_ensemble": {
+    "accuracy": 0.9955,
+    "precision": 0.9957,
+    "recall": 0.9955,
+    "f1_score": 0.9955
+  },
+  "quantum_ml": {
+    "accuracy": 0.9727,
+    "precision": 0.9734,
+    "recall": 0.9727,
+    "f1_score": 0.9725
+  },
+  "quantum_random_forest": {
+    "accuracy": 0.9966,
+    "precision": 0.9968,
+    "recall": 0.9966,
+    "f1_score": 0.9965
+  }
+}

@@ -1,0 +1,16 @@
+django==5.2.4
+djangorestframework
+django-cors-headers
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+shap
+optuna
+pennylane
+joblib
+openmeteo-requests
+requests-cache
+retry-requests
+matplotlib
