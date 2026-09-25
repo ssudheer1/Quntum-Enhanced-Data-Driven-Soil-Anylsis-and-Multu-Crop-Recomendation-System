@@ -99,3 +99,46 @@ export async function getTrainingDetails() {
   if (!response.ok) throw new Error('Training details not available');
   return response.json();
 }
+
+/** Get yield dataset model comparison (admin) */
+export async function getYieldComparison() {
+  const response = await fetch(`${API_BASE}/yield-comparison/`, { headers: headers() });
+  if (!response.ok) throw new Error('Yield models not trained yet');
+  return response.json();
+}
+
+/** Get 5-fold stratified CV results for both datasets */
+export async function getKFoldResults() {
+  const response = await fetch(`${API_BASE}/kfold-results/`, { headers: headers() });
+  if (!response.ok) throw new Error('K-fold results not available');
+  return response.json();
+}
+
+/** Predict yield from input features */
+export async function predictYield(inputData) {
+  const response = await fetch(`${API_BASE}/predict-yield/`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify(inputData),
+  });
+  if (!response.ok) throw new Error('Yield prediction failed');
+  return response.json();
+}
+
+/** Get Srikakulam soil analysis (admin) */
+export async function getSrikakulamAnalysis() {
+  const response = await fetch(`${API_BASE}/srikakulam-analysis/`, { headers: headers() });
+  if (!response.ok) throw new Error('Srikakulam data not available');
+  return response.json();
+}
+
+/** Predict Srikakulam nutrient status */
+export async function predictSrikakulam(inputData) {
+  const response = await fetch(`${API_BASE}/predict-srikakulam/`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify(inputData),
+  });
+  if (!response.ok) throw new Error('Srikakulam prediction failed');
+  return response.json();
+}

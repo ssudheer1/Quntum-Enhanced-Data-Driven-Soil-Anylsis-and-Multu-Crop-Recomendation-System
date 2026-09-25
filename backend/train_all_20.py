@@ -13,6 +13,7 @@ from api.ml.extended_models import ExtendedModels
 from api.ml.stacked_ensemble import StackedEnsemble
 from api.ml.quantum_model import QuantumMLModel
 from api.ml.quantum_random_forest import QuantumRandomForest
+from api.ml.kfold_trainer import run_kfold_cv
 
 dataset_path = os.path.join('..', 'DATASETS', 'Crop_recommendation.csv')
 models_dir = 'trained_models'
@@ -20,7 +21,7 @@ os.makedirs(models_dir, exist_ok=True)
 
 # ── Step 1: Preprocess ──
 print('=' * 70)
-print('  TRAINING ALL 20 MODELS')
+print('  TRAINING ALL 21 MODELS (Crop Recommendation)')
 print('=' * 70)
 total_start = time.time()
 
@@ -34,6 +35,26 @@ X_train, X_test = data['X_train'], data['X_test']
 y_train, y_test = data['y_train'], data['y_test']
 
 comparison = {}
+
+# ── Step 1b: 5-Fold Stratified CV with Optuna HPO ──
+print('\n' + '-' * 50)
+print('Step 1b: 5-Fold Stratified Cross-Validation')
+print('-' * 50)
+cv_results, best_params = run_kfold_cv(X_train, y_train, n_folds=5, n_trials=10)
+joblib.dump(cv_results, os.path.join(models_dir, 'cv_results.joblib'))
+# Save as JSON for frontend
+import json as _json
+cv_json = {}
+for name, r in cv_results.items():
+    cv_json[name] = {
+        'mean_accuracy': r['mean_accuracy'],
+        'std_accuracy': r['std_accuracy'],
+        'mean_f1': r['mean_f1'],
+        'fold_scores': r['fold_scores'],
+    }
+with open(os.path.join(models_dir, 'cv_results.json'), 'w') as f:
+    _json.dump(cv_json, f, indent=2)
+print(f'\nSaved cv_results.json with {len(cv_json)} models')
 
 # ── Step 2: Classical Models (RF, XGBoost, LightGBM, KNN) ──
 print('\n' + '-' * 50)

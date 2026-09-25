@@ -34,3 +34,10 @@ npm-debug.log
 # OS
 .DS_Store
 Thumbs.db
+
+# Local training inputs and generated model artifacts
+DATASETS/
+backend/trained_models_yield/
+backend/trained_models_srikakulam_macro/
+backend/trained_models_srikakulam_micro/
+backend/api/ml/agri_yield_models/

@@ -45,4 +45,17 @@ urlpatterns = [
     path('admin/stats/', views.admin_stats, name='admin_stats'),
     path('admin/users/', views.admin_users, name='admin_users'),
     path('admin/training-details/', views.admin_training_details, name='admin_training_details'),
+
+    # ── Yield Dataset + K-Fold ──
+    path('yield-comparison/', views.yield_comparison, name='yield_comparison'),
+    path('kfold-results/', views.kfold_results, name='kfold_results'),
+    path('predict-yield/', views.predict_yield, name='predict_yield'),
+
+    # ── Srikakulam Soil Health ──
+    path('srikakulam-analysis/', views.srikakulam_analysis, name='srikakulam_analysis'),
+    path('predict-srikakulam/', views.predict_srikakulam, name='predict_srikakulam'),
+
+    # ── Agri Yield Prediction (46 features) ──
+    path('predict-agri-yield/', views.predict_agri_yield, name='predict_agri_yield'),
+    path('agri-yield-options/', views.agri_yield_options, name='agri_yield_options'),
 ]

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/i18n';
 
 const DEFAULT_VALUES = {
@@ -11,9 +11,21 @@ const DEFAULT_VALUES = {
   rainfall: 202.94,
 };
 
-export default function InputForm({ onSubmit, loading }) {
+export default function InputForm({ onSubmit, loading, weatherData }) {
   const { t } = useLanguage();
   const [values, setValues] = useState(DEFAULT_VALUES);
+
+  // Auto-fill weather data when it arrives
+  useEffect(() => {
+    if (weatherData) {
+      setValues(prev => ({
+        ...prev,
+        temperature: weatherData.temperature || prev.temperature,
+        humidity: weatherData.humidity || prev.humidity,
+        rainfall: weatherData.rainfall || prev.rainfall,
+      }));
+    }
+  }, [weatherData]);
 
   const FIELDS = [
     { key: 'nitrogen', label: t('nitrogen'), icon: '🧪', unit: 'mg/kg', min: 0, max: 300, step: 1 },
